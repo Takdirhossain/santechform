@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import logo from "../assets/letus.png";
+
 import PhoneInput from "react-phone-input-2";
 import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
-
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import Loading from "../components/Loading";
-
+import Stripe from "stripe";
+const stripe = new Stripe(
+  "pk_test_51N5av4SAHh9BgXprDapq9Dd6BdAcYhDER1IJgVvQybnIK1QeuGOoeJSIcp8bQ0IsDgZHTPshbljULvRPbqc5qBnX009i7KbQwO"
+);
+import { CardElement } from "react-stripe-elements";
 const packagePrices = {
   Asia: {
     Turkey: "TRY 7499",
@@ -62,7 +65,7 @@ const CountryPackages = () => {
   const [captcha, setcaptcha] = useState(false);
   const [captchaerror, setCaptchaerror] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [paymentIntent, setPaymentIntent] = useState(null);
   const handleRegionSelection = (e) => {
     const selectregion = e.target.value;
     setSelectedRegion(selectregion);
@@ -86,6 +89,77 @@ const CountryPackages = () => {
   };
   const randomNumber = Math.floor(Math.random() * 900000) + 100000;
 
+  const handalerazorpay = (formData) => {
+    const data = { amount: 150 };
+    axios
+      .post("http://localhost:5000/order", data)
+      .then((res) => {
+        handalerazorpay(res?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    const handalerazorpay = (data) => {
+      const options = {
+        key: "rzp_test_WjQrOkgltnhkbY",
+        amount: parseInt(data?.amount) * 100,
+        currency: data?.currency,
+        order_id: data?.id,
+        name: "LETUSMAINTAIN.COM",
+        image: "https://i.ibb.co/gZ3JXLC/letus.png",
+        description: "Welcome to letusmaintain.com happy to see you here",
+        handler: function (response) {
+          console.log(response);
+        },
+      };
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
+  };
+  const handalestripe = async (formData) => {
+    const data = {
+      name: "takdir",
+      email: "test@gmail.com",
+      amount: 140,
+    };
+    const paymentIntentResponse = await fetch("http://localhost:5000/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const paymentIntent = await paymentIntentResponse.json();
+
+    setPaymentIntent(paymentIntent);
+
+    // Confirm payment
+    const { error } = await stripe.confirmCardPayment(
+      paymentIntent.client_secret,
+      {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: data.name,
+            email: data.email,
+          },
+        },
+      }
+    );
+
+    if (error) {
+      console.error(error);
+      // Handle payment error
+    } else {
+      // Payment successful
+    }
+  };
+  const handalepaypal = (formData) => {
+    console.log(formData);
+  };
+
   const handalesubmit = (e) => {
     e.preventDefault();
 
@@ -103,36 +177,66 @@ const CountryPackages = () => {
         password: password,
         packagePrices: packagePrices,
         fulladdress: fulladdress,
-        
-       
       };
 
-      console.log(formData);
-      // fetch("https://santechserver.vercel.app/registration", {
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json",
-      //   },
-      //   body: JSON.stringify(formData),
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //     setLoading(false);
-      //     Swal.fire(
-      //       "Application Received",
-      //       `Your Channel Partner ID Is ${data.partnerId}`,
-      //       "success"
-      //     );
-      //     e.target.reset();
-      //   })
-      //   .catch((error) => console.log(error));
+      Swal.fire({
+        title: "Select A Payment Method",
+        html: '<button  margin-right:10px;"  class="modal-button" id="razorpay">Razor Pay</button><button class="modal-stripe" id="stripe">Stripe</button><button class="modal-paypal" id="paypal">Paypal</button>',
+        didOpen: () => {
+          document
+            .getElementById("razorpay")
+            .addEventListener("click", () => handalerazorpay(formData));
+          document
+            .getElementById("stripe")
+            .addEventListener("click", () => handalestripe(formData));
+          document
+            .getElementById("paypal")
+            .addEventListener("click", () => handalepaypal(formData));
+        },
+      });
     } else {
       setCaptchaerror("please fill captcha");
     }
   };
   return (
     <div>
+      <style>
+        {`
+          .modal-button {
+            background-color: #3395ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-reduce: 7px;
+            
+            margin-right:10px;
+          }
+          .modal-paypal {
+            background-color: #003087;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right:10px;
+            border-reduce: 7px;
+          }
+          .modal-stripe {
+            background-color: #626cd9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right:10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-reduce: 7px;
+          }
+          
+          
+        `}
+      </style>
       <div>
         <img
           className="relative hidden lg:block  h-[1400px] "
@@ -297,7 +401,6 @@ const CountryPackages = () => {
                           <label for="country">Have Reffer Code?</label>
                           <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
                             <input
-                              
                               type="text"
                               name="zip"
                               id="email"
@@ -315,7 +418,6 @@ const CountryPackages = () => {
                                 border: "none",
                                 background: "transparent",
                               }}
-                             
                               value={phone}
                               onChange={handleOnChange}
                               country={"in"}
@@ -364,7 +466,6 @@ const CountryPackages = () => {
                           </div>
                         </div>
 
-                       
                         <div class="md:col-span-5 z-0">
                           <label for="country">Services in Package: </label>
                           <div class=" ">
@@ -466,11 +567,11 @@ const CountryPackages = () => {
                                       </div>
                                     </td>
                                     <td className="mt-10 -mb-20">
-                                     <h2 className="text-xl w-40 font-bold bg-[#00ff00] pl-5 pt-2 pb-2 text-white rounded">
-                                     {selectedPackagePrice
-                                        ? selectedPackagePrice
-                                        : "SGD 950 "}
-                                     </h2>
+                                      <h2 className="text-xl w-40 font-bold bg-[#00ff00] pl-5 pt-2 pb-2 text-white rounded">
+                                        {selectedPackagePrice
+                                          ? selectedPackagePrice
+                                          : "SGD 950 "}
+                                      </h2>
                                       <br />
                                     </td>
                                   </tr>
@@ -497,7 +598,7 @@ const CountryPackages = () => {
                         <div class="md:col-span-2">
                           <ReCAPTCHA
                             sitekey="6LeM1swlAAAAABoXDNzY-heV1SEr_IF1dXRGoBOD"
-                            required 
+                            required
                             onChange={onChange}
                           />
                           <p className="text-red-600">{captchaerror}</p>

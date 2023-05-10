@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import logo from "../assets/letus.png";
+
 import PhoneInput from "react-phone-input-2";
 import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "react-phone-input-2/lib/style.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import "../components/custom.css";
+
 import Loading from "../components/Loading";
 const ClientReg = () => {
   const [fullpackage, setFullpackage] = useState(false);
