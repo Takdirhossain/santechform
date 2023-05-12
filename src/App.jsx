@@ -13,6 +13,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Enterprice from "./pages/Enterprice";
+import { ServicesSliderIndivisiul } from "./components/Subscribe";
+import Aboutus from "./pages/aboutus";
+import Cancellation from "./pages/cancellation";
+import Contanctus from "./pages/contanctus";
+import Allpackages from "./pages/Allpackages";
+import Privacy from "./pages/privacy";
+import Trames from "./pages/terms";
+import Error from "./components/Error";
 
 
 const router = createBrowserRouter(
@@ -22,7 +30,12 @@ const router = createBrowserRouter(
       {path:"/career", element:<Career/>},
       {path:"/clientregistration", element:<ClientReg/>},
       {path:"/registation", element:<Registation/>},
-      {path:"/CountryPackages", element:<CountryPackages/>},
+      {path:"/aboutus", element:<Aboutus/>},
+      {path:"/cancellation", element:<Cancellation/>},
+      {path:"/contanctus", element:<Contanctus/>},
+      {path:"/privacy", element:<Privacy/>},
+      {path:"/trames", element:<Trames/>},
+      {path: "*", element:<Error/>}
     ]
   
 );

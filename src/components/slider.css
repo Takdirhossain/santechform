@@ -1,25 +1,8 @@
-.swiper {
-  width: 100%;
-  height: 100%;
+.slideritem{
+  border: 2px solid white;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .slider-container{
     background-color: #000;
@@ -27,8 +10,4 @@
     background-position: center;
     background-size: cover;
 }
-  
-  .carousel .control-arrow:before {
-    display: none; /* Hide any arrow icons set by default */
-  }
   

@@ -117,10 +117,10 @@ export const ServicesSliderIndivisiul = () => {
 export const ServicesSliderEnterprice = () => {
   return (
     <div className="slider-container  sm:flex sm:flex-col md:flex-row  ">
-      <div className="sm:w-4/5 md:w-2/4 pl-10 pt-20  pb-20 text-black">
+      <div className="sm:w-4/5 md:w-2/4 pl-10 pt-20  pb-20 text-white">
     <h2 className="text-center text-2xl font-bold">BEFORE SUBSCRIPTION</h2>
     <Carousel infiniteLoop showIndicators={false}>
-      <div className="bg-slate-400">
+      <div className="">
         <p className="pt-10 pb-10">
           <span className="slideritem text-5xl rounded-full w-16 h-16 pl-10 pt-5 pr-10 pb-5">
             1

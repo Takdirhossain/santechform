@@ -29,6 +29,7 @@ import twitter from "../assets/oterhs/icons8-twitter-30.png";
 import { ServicesSliderEnterprice } from "../components/Subscribe";
 import { sales } from "../functions/SalesContact";
 import Nav from "../components/Nav";
+import { Link } from "react-router-dom";
 
 
 const Enterprice = () => {
@@ -299,21 +300,31 @@ const Enterprice = () => {
 
       <footer>
         <div class="footer-links">
-          <a class="footer-link" href="#">
+          <Link to="/trames"><a class="footer-link" >
             Terms & Conditions
-          </a>
-          <a class="footer-link" href="#">
+          </a></Link>
+          <Link to="/privacy">
+          <a class="footer-link">
             Privacy Policy
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+          <Link to="/cancellation">
+          
+          <a class="footer-link" >
             Payment Policy
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+          <Link to="/career">
+          <a class="footer-link" >
             Join Team
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+         
+         <Link to="/registation">
+         <a class="footer-link" >
             Channel Partner
           </a>
+         </Link>
           <a class="footer-link" id="corporate-footer" href="#">
             {/* The button to open modal */}
             <label htmlFor="my-modal" className="">
@@ -422,85 +433,8 @@ const Enterprice = () => {
             User Login
           </a>
         </div>
-        {/* <form id="region-form" class="sales-contact">
-          <h3>Choose your region</h3>
-          <select id="region-select">
-            <option value="">Select a region</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="north-america">North America</option>
-          </select>
-          <div id="address-fields">
-            <p>
-              {" "}
-              Street: <span id="street"></span>{" "}
-            </p>
-            <p>
-              City: <span id="city"></span>
-            </p>
-            <p>
-              State:<span id="state"></span>
-            </p>
-            <p>
-              Phone Number:<span id="phone"></span>
-            </p>
-            <p>
-              Country:<span id="country"></span>
-            </p>
-          </div>
-          <button type="submit">Got it, thanks!</button>
-          <img
-            class="close-image"
-            src="./img/icons8-multiplicar-24.png"
-            alt=""
-          />
-        </form> */}
+        
 
-        {/* <form id="sales-contact" class="sales-contact">
-          <h3>Choose your region</h3>
-
-          <select id="contry-contact">
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="northamerica">North America</option>
-          </select>
-          <select name="country-option" id="country-option">
-            <option value="India">India</option>
-            <option value="Singapore">Singapore</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Turkey">Turkey</option>
-            <option value="Hong Kong">Hong Kong</option>
-            <option value="UAE">UAE</option>
-          </select>
-          <div id="content">
-            <p>
-              <strong>Stree:</strong>{" "}
-              <span class="street">
-                10, Hermes Centre, Sector 17, Vashi, Navi Mumbai
-              </span>
-            </p>
-            <p>
-              <strong>City:</strong>
-              <span class="city">Mumbai</span>
-            </p>
-            <p>
-              <strong>City:</strong>
-              <span class="state">Maharashtra</span>
-            </p>
-            <p>
-              <strong>Phone:</strong> <span class="phone">02227890390</span>
-            </p>
-            <p>
-              <strong>Country:</strong> <span class="country">India</span>
-            </p>
-          </div>
-          <button type="submit">Got it, thanks!</button>
-          <img
-            class="close-image"
-            src="./img/icons8-multiplicar-24.png"
-            alt=""
-          />
-        </form> */}
 
         <div class="footer-grid">
           <div class="footer1"> Operational In </div>

@@ -324,21 +324,31 @@ const Indivisul = () => {
 
       <footer>
         <div class="footer-links">
-          <a class="footer-link" href="#">
+        <Link to="/trames"><a class="footer-link" >
             Terms & Conditions
-          </a>
-          <a class="footer-link" href="#">
+          </a></Link>
+          <Link to="/privacy">
+          <a class="footer-link">
             Privacy Policy
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+          <Link to="/cancellation">
+          
+          <a class="footer-link" >
             Payment Policy
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+          <Link to="/career">
+          <a class="footer-link" >
             Join Team
           </a>
-          <a class="footer-link" href="#">
+          </Link>
+         <Link to="/registation">
+         <a class="footer-link" >
             Channel Partner
           </a>
+         </Link>
+        
           <a class="footer-link" id="corporate-footer" href="#">
             {/* The button to open modal */}
             <label htmlFor="my-modal" className="">

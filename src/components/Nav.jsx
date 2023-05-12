@@ -37,6 +37,9 @@ const Nav = ({other}) => {
             <li className="text-xl">
               <Link to="/registation">Channel Partner </Link>
             </li>
+            <li className="text-xl">
+              <Link to="/career">Career </Link>
+            </li>
 
             <li className="text-xl">
               <Link to="/blog">Blogs </Link>
@@ -58,7 +61,12 @@ const Nav = ({other}) => {
             <li className="text-xl">
               <Link to="/registation">Channel Partner </Link>
             </li>
-
+            <li className="text-xl">
+              <Link to="/career">Career </Link>
+            </li>
+            <li className="text-xl">
+              <Link to="/contanctus">Contact </Link>
+            </li>
             <li className="text-xl">
               <Link to="/blog">Blogs </Link>
             </li>

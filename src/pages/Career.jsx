@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import Loading from "../components/Loading";
+import Nav from "../components/Nav";
 const Career = () => {
   const [gender, setGender] = useState("");
   const [data, setData] = useState([]);
@@ -105,11 +106,14 @@ const Career = () => {
     <div>
       <img
         className="relative hidden lg:block  w-screen h-[1000px]"
-        src="https://static.vecteezy.com/system/resources/thumbnails/016/803/058/small/blurry-background-business-office-office-desks-with-computers-along-the-window-business-background-photo.jpg"
+        src="https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1600x900.jpg"
         alt=""
       />
+    <div className="absolute top-1">
+        <Nav/>
+    </div>
       <div className=" lg:w-8/12 m-auto">
-        <div class="min-h-screen absolute top-0  flex ml-0 lg:ml-60">
+        <div class="min-h-screen absolute top-32  flex ml-0 lg:ml-60">
           <div class="container max-w-screen-lg ">
             <div className="">
               <div className="flex justify-between items-center">
