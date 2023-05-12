@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import Loading from "../components/Loading";
+import Nav from "../components/Nav";
 
 const Registation = () => {
 
@@ -101,23 +102,29 @@ const Registation = () => {
   };
 
   return (
-    <div>
+    <div className="">
+     
+  
+    
       <img
         className="relative hidden lg:block  w-screen h-fit"
-        src="https://static.vecteezy.com/system/resources/thumbnails/016/803/058/small/blurry-background-business-office-office-desks-with-computers-along-the-window-business-background-photo.jpg"
+        src="https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1600x900.jpg"
         alt=""
       />
-      <div className=" lg:w-8/12 m-auto">
-        <div class="min-h-screen absolute top-0  flex ml-0 lg:ml-60">
-          <div class="container max-w-screen-lg ">
+        <div className="absolute top-0">
+    <Nav  other={"other"}/>
+    </div>
+      <div className=" lg:w-8/12   m-auto">
+        <div class="min-h-screen absolute top-16  flex ml-0 lg:ml-60">
+          <div class="container max-w-screen-lg flex items-center ">
             <div className="">
-              <div className="flex justify-between items-center">
+              <div className="flex pt-20 justify-between items-center">
                 <div className="">
-                  <h2 class="font-semibold text-xl text-gray-600">
+                  <h2 class="font-semibold text-xl text-gray-600 pb-10">
                     Please Fill in the below details{" "}
                   </h2>
                 </div>
-                <img src={logo} alt="" />
+                
               </div>
 
               <div class="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">

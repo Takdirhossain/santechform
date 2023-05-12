@@ -12,6 +12,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Enterprice from "./pages/Enterprice";
 
 
 const router = createBrowserRouter(
@@ -19,7 +20,7 @@ const router = createBrowserRouter(
     [
       {path:"/", element:<Home/>},
       {path:"/career", element:<Career/>},
-      {path:"/clientReg", element:<ClientReg/>},
+      {path:"/clientregistration", element:<ClientReg/>},
       {path:"/registation", element:<Registation/>},
       {path:"/CountryPackages", element:<CountryPackages/>},
     ]

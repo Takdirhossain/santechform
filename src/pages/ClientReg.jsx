@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import "../components/custom.css"
 import PhoneInput from "react-phone-input-2";
 import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "react-phone-input-2/lib/style.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import logo  from "../assets/oterhs/logo (1).png"
 import Loading from "../components/Loading";
+import Nav from "../components/Nav";
 const ClientReg = () => {
   const [fullpackage, setFullpackage] = useState(false);
   const [asperservice, setasperservice] = useState(false);
@@ -124,10 +125,11 @@ const ClientReg = () => {
    
   };
   return (
-    <div className="bg-[#e7eff5]">
+    <div className=" clientreg">
+      <Nav/>
       <div className=" lg:w-8/12 m-auto">
       <div className ="min-h-screen  flex items-center justify-center">
-        <div className="container max-w-screen-lg mx-auto">
+        <div className="container max-w-screen-lg mx-auto mt-14">
           <div>
             <div className="flex justify-between items-center">
               <div className="">
@@ -135,7 +137,7 @@ const ClientReg = () => {
                   Please Fill in the below details{" "}
                 </h2>
               </div>
-              <img src={logo} alt="" />
+              
             </div>
 
             <div className="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">

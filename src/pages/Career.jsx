@@ -118,7 +118,7 @@ const Career = () => {
                     Please Fill in the below details{" "}
                   </h2>
                 </div>
-                <img src={logo} alt="" />
+                
               </div>
 
               <div class="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">
