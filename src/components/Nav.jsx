@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import logo2 from "../assets/oterhs/logo -light.png"
+import logo from "../assets/oterhs/logo (1).png"
 
-const Nav = ({other}) => {
-   
+const Nav = ({type}) => {
+ 
     return (
-        <div className="mt-4  	pl-20 m-auto">
+        <div className="  	pl-20 m-auto">
       <div className="navbar  ">
         <div className="navbar-start ">
           <div className="dropdown">
@@ -31,9 +32,8 @@ const Nav = ({other}) => {
               <li className="text-xl">
               <Link to="/">Home </Link>
             </li>
-            <li className="text-xl">
-              <Link to="/clientregistration">Client Registation </Link>
-            </li>
+            
+           
             <li className="text-xl">
               <Link to="/registation">Channel Partner </Link>
             </li>
@@ -48,25 +48,28 @@ const Nav = ({other}) => {
             
             </ul>
           </div>
-          <img className="" src={logo2} alt="" />
+          <img className="w-1/2" src={logo2} alt="" />
         </div>
         <div className="navbar-center text-white ml-[300px] hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li className="text-xl">
               <Link to="/">Home </Link>
             </li>
-            <li className="text-xl">
-              <Link to="/clientregistration">Client Registation </Link>
+            {
+              type === "enterprice" &&  <li className="text-xl">
+              <Link to="/regindividual">Client Registation </Link>
             </li>
-            <li className="text-xl">
-              <Link to="/registation">Channel Partner </Link>
+            }
+            {
+              type === "individual" &&  <li className="text-xl">
+              <Link to="/regenterprice">Client Registation </Link>
             </li>
+            }
+            
             <li className="text-xl">
               <Link to="/career">Career </Link>
             </li>
-            <li className="text-xl">
-              <Link to="/contanctus">Contact </Link>
-            </li>
+           
             <li className="text-xl">
               <Link to="/blog">Blogs </Link>
             </li>

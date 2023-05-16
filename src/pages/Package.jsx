@@ -11,6 +11,8 @@ const stripe = new Stripe(
   "pk_test_51N5av4SAHh9BgXprDapq9Dd6BdAcYhDER1IJgVvQybnIK1QeuGOoeJSIcp8bQ0IsDgZHTPshbljULvRPbqc5qBnX009i7KbQwO"
 );
 import { CardElement } from "react-stripe-elements";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 const packagePrices = {
   Asia: {
     Turkey: "TRY 7499",
@@ -240,20 +242,23 @@ const CountryPackages = () => {
       <div>
         <img
           className="relative hidden lg:block  h-[1400px] "
-          src="https://static.vecteezy.com/system/resources/thumbnails/016/803/058/small/blurry-background-business-office-office-desks-with-computers-along-the-window-business-background-photo.jpg"
+          src="https://www.advanceecomsolutions.com/wp-content/uploads/2022/10/became-a-partner.jpg"
           alt=""
         />
+       <div className="absolute top-0">
+        <Nav type="enterprice"/> 
+       </div>
         <div className=" lg:w-8/12 m-auto">
-          <div class="min-h-screen absolute top-0  flex ml-0 lg:ml-60">
+          <div class="min-h-screen absolute top-32  flex ml-0 lg:ml-60">
             <div class="container max-w-screen-lg ">
               <div className="">
                 <div className="flex justify-between items-center">
                   <div className="">
-                    <h2 class="font-semibold text-xl text-gray-600">
+                    <h2 class="font-semibold text-xl text-white">
                       Please Fill in the below details{" "}
                     </h2>
                   </div>
-                  <img src={logo} alt="" />
+                  
                 </div>
 
                 <div class="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">
@@ -625,6 +630,7 @@ const CountryPackages = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const Registation = () => {
 
@@ -107,8 +108,8 @@ const Registation = () => {
   
     
       <img
-        className="relative hidden lg:block  w-screen h-fit"
-        src="https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1600x900.jpg"
+        className="relative hidden lg:block  w-screen h-auto"
+        src="https://images.unsplash.com/photo-1432847712612-926caafaa802?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"
         alt=""
       />
         <div className="absolute top-0">
@@ -120,7 +121,7 @@ const Registation = () => {
             <div className="">
               <div className="flex pt-20 justify-between items-center">
                 <div className="">
-                  <h2 class="font-semibold text-xl text-gray-600 pb-10">
+                  <h2 class="font-semibold text-xl text-white pb-10">
                     Please Fill in the below details{" "}
                   </h2>
                 </div>
@@ -303,9 +304,11 @@ const Registation = () => {
                   </form>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
+              <Footer/>
       </div>
     </div>
   );

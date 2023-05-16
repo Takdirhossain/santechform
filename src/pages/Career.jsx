@@ -8,6 +8,10 @@ import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Career = () => {
   const [gender, setGender] = useState("");
   const [data, setData] = useState([]);
@@ -19,6 +23,11 @@ const Career = () => {
   const [captcha, setcaptcha] = useState(true);
   const [captchaerror, setCaptchaerror] = useState("");
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      duration:1000
+    })
+      },[])
   useEffect(() => {
     axios
       .get(
@@ -105,8 +114,8 @@ const Career = () => {
   return (
     <div>
       <img
-        className="relative hidden lg:block  w-screen h-[1000px]"
-        src="https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1600x900.jpg"
+        className="relative hidden lg:block  w-screen h-[1200px]"
+        src="https://png.pngtree.com/thumb_back/fh260/background/20220525/pngtree-businessman-walking-on-the-career-road-image_1401185.jpg"
         alt=""
       />
     <div className="absolute top-1">
@@ -127,7 +136,7 @@ const Career = () => {
 
               <div class="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div class="grid  gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                  <form onSubmit={handalesubmit} class="lg:col-span-3 ">
+                  <form data-aos="fade-right" onSubmit={handalesubmit} class="lg:col-span-3 ">
                     <div class="grid gap-4 gap-y-5 text-sm grid-cols-1 ">
                       <div class="md:col-span-4">
                         <label for="full_name">Full Name*</label>
@@ -394,6 +403,7 @@ const Career = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

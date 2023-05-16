@@ -10,6 +10,9 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import logo  from "../assets/oterhs/logo (1).png"
 import Loading from "../components/Loading";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const ClientReg = () => {
   const [fullpackage, setFullpackage] = useState(false);
   const [asperservice, setasperservice] = useState(false);
@@ -25,6 +28,11 @@ const ClientReg = () => {
   const [captchaerror, setCaptchaerror] = useState("")
   const [loading ,setLoading] = useState(false) 
 
+  useEffect(() => {
+    AOS.init({
+      duration:1000
+    })
+      },[])
   const onChange = () => {
     setcaptcha(true)
     setCaptchaerror("")
@@ -125,7 +133,8 @@ const ClientReg = () => {
    
   };
   return (
-    <div className=" clientreg">
+   <div>
+     <div className=" clientreg">
       <Nav/>
       <div className=" lg:w-8/12 m-auto">
       <div className ="min-h-screen  flex items-center justify-center">
@@ -142,7 +151,7 @@ const ClientReg = () => {
 
             <div className="bg-white  rounded shadow-lg p-4 px-4 md:p-8 mb-6">
               <div className="grid  gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                <form onSubmit={handalesubmit} className="lg:col-span-3">
+                <form data-aos="fade-left" onSubmit={handalesubmit} className="lg:col-span-3">
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1">
                   <div className="md:col-span-6 mt-4">
                       <label for="full_name">Full Name*</label>
@@ -727,7 +736,10 @@ const ClientReg = () => {
         </div>
       </div>
     </div>
+   
     </div>
+    <Footer/>
+   </div>
   );
 };
 
